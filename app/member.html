@@ -32,7 +32,7 @@
      <div class="row row-offcanvas row-offcanvas-left">
        <!--SIDEBAR-->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
-          <img src="{{vm.user.profile_pic_url}}"  style="padding: 10px; width:180px; height:180px">
+          <img src="{{vm.user.profile_pic_url}}"  style="padding: 10px; width:180px; height:180px; object-fit: cover;">
           <div>
             <!--<li>ID: {{vm.userID}}</li>-->
             <p>NAME:  {{vm.user.display_name}}</p>
@@ -59,32 +59,13 @@
               </ul>
 
               <br>
-              <h4> Add new skill: {{vm.newSkill}}</h4>
-              <input type="text" placeholder="type skill here.." ng-model = "vm.newSkill">
-              <input type="button" value="Add" ng-click="vm.addNewSkill(vm.newSkill);">
+              <div ng-if="vm.isMyProfile()">
+                <h4> Add new skill: {{vm.newSkill}}</h4>
+                <input type="text" placeholder="type skill(s) here" ng-model = "vm.newSkill">
+                <input type="button" value="Add" ng-click="vm.addNewSkill(vm.newSkill);">
+              </div>
 
             </div>
-
-<!--EVENTS
-            <div>
-                <h3>EVENTS</h3>
-                <div class="col-sm-6">
-                  <h4>ACTIVE</h4>
-                  <ul>
-                    <li>EVENTNAME</li>
-                    <li>EVENTNAME2</li>
-                  </ul>
-                </div>
-                <div class"col-sm-6">
-                  <h4>INACTIVE</h4>
-                  <ul>
-                    <li>EVENTNAME1</li>
-                    <li>EVENTNAME2</li>
-                    <li>EVENTNAME3</li>
-                  </ul>
-                </div>
-            </div>
--->
         </div>
 
       </div>
@@ -94,7 +75,6 @@
    <!-- Angular and Angular-route libraries (v1.5.7) -->
    <script src="assets/lib/angular.min.js"></script>
    <script src="assets/lib/angular-route.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.js"></script>
 
 
    <!-- Firebase (v3.0.3) and AngularFire (v2.0.0) (after angular library is loaded) -->

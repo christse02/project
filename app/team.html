@@ -48,38 +48,14 @@
 
 
 				<div class="row">
-<<<<<<< HEAD
-                  <div class="col-sm-6">
-                     <h4>Team members</h4>
-                     <!-- TODO: Show the current team member list -->
-
-					 <div ng-repeat="teamMemberID in vm.param.teamMembers">
-						<button type="button" class="btn" ng-click="vm.removeMember(teamMemberID);">
-							<span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{vm.getMemberName(teamMemberID)}}
-						</button>
-					 </div>
-
-                  </div>
-
-                  <div class="col-sm-6">
-                     <h4>Requests received:</h4>
-
-                     <!--TODO: Show the requests -->
-
-					 <div ng-repeat="requestMemberID in vm.requests">
-						<button type="button" class="btn" ng-click="vm.processRequest(requestMemberID);">
-							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span> {{vm.getMemberName(requestMemberID)}}
-						</button>
-					 </div>
-
-                  </div>
-=======
           <div ng-class="vm.isTeamLeader() ? 'col-md-6' : 'col-md-12'">
             <h4>Team members</h4>
 					  <div ng-repeat="teamMemberID in vm.param.teamMembers" ng-init="teamMemberData = vm.getMemberData(teamMemberID)">
               <div class="panel panel-default">
                 <div class="panel-heading">
-                  <h3 class="panel-title">{{teamMemberData.name}}</h3>
+                  <h3 class="panel-title">
+                    <a href='member.html?id={{teamMemberID}}'>{{teamMemberData.name}}</a>
+                  </h3>
                 </div>
                 <div class="panel-body">
                   <p><b>Introduction: </b>{{teamMemberData.introduction}}</p>
@@ -97,7 +73,9 @@
 					  <div ng-repeat="requestMemberID in vm.requests" ng-init="requestMemberData = vm.getMemberData(requestMemberID)">
               <div class="panel" ng-class="vm.containsRequiredSkills(requestMemberData.skills) ? 'panel-success' : 'panel-danger'">
                 <div class="panel-heading">
-                  <h3 class="panel-title">{{requestMemberData.name}}</h3>
+                  <h3 class="panel-title">
+                    <a href='member.html?id={{requestMemberID}}'>{{requestMemberData.name}}</a>
+                  </h3>
                 </div>
                 <div class="panel-body">
                   <p><b>Introduction: </b>{{requestMemberData.introduction}}</p>
@@ -110,7 +88,6 @@
 					  </div>
 					 
           </div>
->>>>>>> 1113pmoc/master
 				</div>
 
             </div>
