@@ -39,4 +39,19 @@ function MemberCtrl($scope, currentUser, teamformDb){
     return arr;
   }
 
+    var initdata = [  {"label": "SKILL1", "val": false},
+                      {"label": "SKILL2", "val": false},
+                      {"label": "SKILL3", "val": false},
+                   ];
+    vm.commonSkills = initdata;
+
+    vm.ifChecked = ifChecked;
+
+    function ifChecked(skillLabel, skillVal){
+      if(skillVal){
+        vm.addNewSkill(skillLabel);
+      }
+      //alert(skillLabel);
+    }
+
 }

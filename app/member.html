@@ -60,7 +60,15 @@
 
               <br>
               <div ng-if="vm.isMyProfile()">
-                <h4> Add new skill: {{vm.newSkill}}</h4>
+                <h4>Check obtained skills:</h4>
+             		<ul>
+             				<li ng-repeat ="skill in vm.commonSkills">
+             					<span>{{skill.label}}</span>
+                       <input type= "checkbox" ng-model="skill.val" ng-change='vm.ifChecked(skill.label, skill.val)'>
+             				</li>
+             		</ul>
+
+                <h4> Or add new skill: {{vm.newSkill}}</h4>
                 <input type="text" placeholder="type skill(s) here" ng-model = "vm.newSkill">
                 <input type="button" value="Add" ng-click="vm.addNewSkill(vm.newSkill);">
               </div>
